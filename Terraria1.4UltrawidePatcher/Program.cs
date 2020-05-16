@@ -32,7 +32,7 @@ namespace TerrariaUltrawidePatcher
 					break;
 				}
 
-			for (int i = 983; i <= 968; i--)
+			for (int i = 983; i >= 968; i--)
 				doDrawMethod.Body.Instructions.RemoveAt(i); //remove IL instructions 968-983
 
 			terraria.Write(path); //write assembly to old path
