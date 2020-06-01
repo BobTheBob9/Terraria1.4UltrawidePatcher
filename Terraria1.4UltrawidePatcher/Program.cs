@@ -37,7 +37,7 @@ namespace TerrariaUltrawidePatcher
 
 			terraria.Write(path); //write assembly to old path
 
-			//dirty way of avoiding oom
+			//dirty way of avoiding oom: thanks to FakeMichau
 			using (var stream = new FileStream(path, FileMode.Open, FileAccess.ReadWrite)) 
 			{
 				stream.Position = 150;
