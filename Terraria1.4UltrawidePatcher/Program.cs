@@ -37,6 +37,13 @@ namespace TerrariaUltrawidePatcher
 
 			terraria.Write(path); //write assembly to old path
 
+			//dirty way of avoiding oom
+			using (var stream = new FileStream(path, FileMode.Open, FileAccess.ReadWrite)) 
+			{
+				stream.Position = 150;
+				stream.WriteByte(0x22);
+			}
+			
 			Console.WriteLine("Done! Your unpatched terraria exe has been renamed to Terraria-unpatched.exe");
 		}
 	}
