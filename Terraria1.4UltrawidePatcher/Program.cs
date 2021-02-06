@@ -9,7 +9,7 @@ namespace TerrariaUltrawidePatcher
 	{
 		static void Main(string[] args)
 		{
-			//Terraria::Main.DoDraw(Gametime): remove IL instructions 968-983 (starts at line 363 of c# decompile)
+			//Terraria::Main.DoDraw(Gametime): remove IL instructions 975-990
 			if (args.Length == 0)
 			{
 				Console.WriteLine("Usage: Terraria1.4UltrawidePatcher.exe path/to/Terraria.exe");
@@ -32,10 +32,10 @@ namespace TerrariaUltrawidePatcher
 					break;
 				}
 
-			for (int i = 983; i >= 968; i--)
-				doDrawMethod.Body.Instructions.RemoveAt(i); //remove IL instructions 968-983
+			for (int i = 990; i >= 975; i--)
+				doDrawMethod.Body.Instructions.RemoveAt(i); //remove IL instructions 975-990
 
-			terraria.Write(path); //write assembly to old path
+            terraria.Write(path); //write assembly to old path
 
 			//dirty way of avoiding oom: thanks to FakeMichau
 			using (var stream = new FileStream(path, FileMode.Open, FileAccess.ReadWrite)) 
